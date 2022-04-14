@@ -22,7 +22,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "webpack serve --port=8002"
+        "start": "webpack serve --port=8001"
     },
     "browserslist": {
         "production": [
