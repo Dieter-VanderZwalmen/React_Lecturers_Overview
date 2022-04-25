@@ -5,7 +5,7 @@ type Props = {
     courses: Array<Course>;
 };
 
-const CoursesOverview: React.FC<Props> = ({ courses }: Props) => {
+const CoursesOverviewTable: React.FC<Props> = ({ courses }: Props) => {
     return (
         <div className="col-8">
             <table className="table table-striped">
@@ -33,4 +33,4 @@ const CoursesOverview: React.FC<Props> = ({ courses }: Props) => {
     );
 };
 
-export default CoursesOverview;
+export default CoursesOverviewTable;
