@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import MessageOverview from './components/message-overview';
+import LecturerOverview from './components/lecturer-overview';
 
 function App() {
     return (
@@ -12,18 +12,18 @@ function App() {
                     className="fs-2 d-flex justify-content-center mb-2 mb-lg-0 text-white-50 text-decoration-none"
                     href="/"
                 >
-                Studentbook
+                    UCLL Lecturers
                 </a>
                 <nav>
                     <ul className="nav justify-content-center">
                         <li>
-                            <Link to="/messages" className="nav-link px-4 fs-5 text-white">
-                                Messages
+                            <Link to="/lecturers" className="nav-link px-4 fs-5 text-white">
+                                Overview
                             </Link>
                         </li>
                         <li>
-                            <Link to="/login" className="nav-link px-4 fs-5 text-white">
-                            Login
+                            <Link to="/" className="nav-link px-4 fs-5 text-white">
+                                Add lecturer
                             </Link>
                         </li>
                     </ul>
@@ -31,8 +31,8 @@ function App() {
             </header>
             <main className="container mt-5">
                 <Routes>
-                    <Route path="/messages" element={<MessageOverview />} />
-                    <Route path="/login" element={<MessageOverview />} />
+                    <Route path="/" element={<LecturerOverview />} />
+                    <Route path="/lecturers" element={<LecturerOverview />} />
                 </Routes>
             </main>
         </>
