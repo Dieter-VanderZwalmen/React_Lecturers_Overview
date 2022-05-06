@@ -7,7 +7,15 @@ type Props = {
 };
 
 const MessagesOverviewTable: React.FC<Props> = ({ messages }: Props) => {
-    return (
+    if(messages.length == 0){
+        return (
+            <div className="col-8">
+            <h3>Your friends have been quiet lately…</h3>
+            </div>
+
+        );
+    }
+    return   (
         <div className="col-8">
             <table className="table table-striped">
                 <thead>
@@ -22,7 +30,7 @@ const MessagesOverviewTable: React.FC<Props> = ({ messages }: Props) => {
                         messages.map((message, index) => (
                             <tr key={index}>
                                 <td>{message.author}</td>
-                                <td>{message.dateSent}</td>
+                                <td>{new Date(message.dateSent).getDay()}-{new Date(message.dateSent).getMonth()}-{new Date(message.dateSent).getFullYear()}</td>
                                 <td>{message.text}</td>
                                 
                             </tr>
