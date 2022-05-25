@@ -29,8 +29,8 @@ const MessageOverview: React.FC = () => {
 
 
     const getMessages = async () => {
-        var id = sessionStorage.getItem("ingelogdeUser")
-        const res: AxiosResponse<Array<Message>> = await MessageService.getAllMessagesByFriends("1");
+        var id = String(sessionStorage.getItem("loggedinUser"))
+        const res: AxiosResponse<Array<Message>> = await MessageService.getAllMessagesByFriends("2");
         setMessages(res.data);
     };
 

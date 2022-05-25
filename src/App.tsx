@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MessageOverview from './components/message-overview';
 import LoginPage from './components/login';
+import Login from './components/login';
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
                 </header>
                 <main className="container mt-5">
                     <Routes>
-                        <Route path="/" element={<MessageOverview />} />
+                        <Route path="/" element={<MessageOverview/>} />
                         <Route path="/login" element={<LoginPage />} />
                     </Routes>
                 </main>
