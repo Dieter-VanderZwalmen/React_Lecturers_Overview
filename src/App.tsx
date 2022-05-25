@@ -8,7 +8,7 @@ import LoginPage from './components/login';
 
 function App() {
 
-    if(window.sessionStorage.getItem("deUser") != null)
+    if(window.sessionStorage.getItem("loggedinUser") != null)
     {
         return (
         
@@ -23,7 +23,7 @@ function App() {
                     <nav>
                         <ul className="nav justify-content-center">
                             <li>
-                                <Link to="/messages" className="nav-link px-4 fs-5 text-white">
+                                <Link to="/" className="nav-link px-4 fs-5 text-white">
                                     Messages
                                 </Link>
                             </li>
@@ -37,7 +37,7 @@ function App() {
                 </header>
                 <main className="container mt-5">
                     <Routes>
-                        <Route path="/messages" element={<MessageOverview />} />
+                        <Route path="/" element={<MessageOverview />} />
                         <Route path="/login" element={<LoginPage />} />
                     </Routes>
                 </main>

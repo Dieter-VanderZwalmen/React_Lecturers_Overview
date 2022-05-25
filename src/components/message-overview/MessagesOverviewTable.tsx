@@ -17,7 +17,7 @@ const MessagesOverviewTable: React.FC<Props> = ({ messages }: Props) => {
             </div>
 
         );
-    }
+    } else
     return   (
         <div className="col-8">
             <table className="table table-striped">

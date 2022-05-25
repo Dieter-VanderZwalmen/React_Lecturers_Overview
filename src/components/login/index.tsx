@@ -8,6 +8,7 @@ import { json } from 'stream/consumers';
 import MessageOverview from '../message-overview';
 
 const Login: React.FC = () => {
+    //
     const [statusMessages, setStatusMessages] = useState<StatusMessage[]>([]);
     const [nameInput, setNameInput] = useState<string>("");
 
@@ -18,14 +19,19 @@ const Login: React.FC = () => {
             //laat loginservice error gooien indien het niet lukt??
             //login returned naam van user
             setStatusMessages([{ message: 'trying to log in with the name.', type: 'success' }]);
-            
+            //await new Promise(f => setTimeout(f, 5000));
             await LoginService.login('{"name": "'+name+'"}');//deze lijn zou een error moeten gooien hopelijk indien het niet lukt
-
+            
             setStatusMessages([{ message: 'Logging in.', type: 'success' }]);
-            sessionStorage.setItem("loggedinUser", name)
+            
+            
+            window.sessionStorage.setItem("loggedinUser", name)
+            
+
+
             setStatusMessages([{message: "User is ingelogd", type: 'success'}])
             
-
+            window.location.reload();
             //rederict naar messages??
         } catch (any) {
             //hier moeten we eigenlijk gewoon een fout melding kunnen geven
@@ -44,11 +50,7 @@ const Login: React.FC = () => {
         }else{
             login(nameInput);
         }
-        //while(statusMessages.length > 0) { statusMessages.pop(); }
-        
-
-        //neem de naam van het form
-        //login(nameInput)
+    
     }
    
     
