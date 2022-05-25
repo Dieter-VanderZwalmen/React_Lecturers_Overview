@@ -1,11 +1,13 @@
 
 import React, { useState } from 'react';
+
 import { AxiosResponse } from 'axios';
 import LoginService from '../../services/loginService';
 import { Message,Response,StatusMessage,User } from '../../types/indexUser';
 import classNames from 'classnames';
 import { json } from 'stream/consumers';
 import MessageOverview from '../message-overview';
+import UserService from '../../services/UserService';
 
 const Login: React.FC = () => {
     //
@@ -26,7 +28,12 @@ const Login: React.FC = () => {
             
             
             window.sessionStorage.setItem("loggedinUser", name)
-            
+
+            //in session storage best de user id zetten ipv naam
+            //user ophalen
+            const user: AxiosResponse<User> = await UserService.getUser(name);;
+            //id in sessionStorage zetten
+            window.sessionStorage.setItem("loggedinUser", user.data.id.toString())
 
 
             setStatusMessages([{message: "User is ingelogd", type: 'success'}])

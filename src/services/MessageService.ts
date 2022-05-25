@@ -1,10 +1,10 @@
 import axios from '../axios';
 import { Message } from '../types/indexUser';
 
-const getAllMessages = () => axios.get<Array<Message>>('/messages');
+const getAllMessagesByFriends = (id: string) => axios.get<Message[]>('/messages/'+id);
 
 const MessageService = {
-    getAllMessages,
+    getAllMessagesByFriends,
 };
 
 export default MessageService;
