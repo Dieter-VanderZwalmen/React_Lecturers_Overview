@@ -4,6 +4,8 @@ import MessageService from '../../services/MessageService';
 import { Message } from '../../types/indexUser';
 import MessagesOverviewTable from './MessagesOverviewTable';
 import FriendMessagesOverviewTable from './FriendMessagesOverviewTable';
+import useInterval from 'use-interval';
+
 
 const MessageOverview: React.FC = () => {
     //hier zorgen we ervoor dat messages waarde krijgt door getMessages op te roepen die dan setMessages oproept
@@ -20,6 +22,11 @@ const MessageOverview: React.FC = () => {
     useEffect(() => {
         getMessages();
     }, []);
+
+    useInterval(() => {
+        getMessages();
+    }, 1000);
+
 
     const getMessages = async () => {
         var id = sessionStorage.getItem("ingelogdeUser")
